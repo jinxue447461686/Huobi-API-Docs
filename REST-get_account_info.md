@@ -1,0 +1,99 @@
+##获取个人资产信息 
+###get_account_info
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>字段名</th>
+        <th>填写类型</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>method</th>
+        <td>必填</td>
+        <td>请求的方法 get_account_info</td>
+    </tr>
+    <tr>
+        <th>access_key</th>
+        <td>必填</td>
+        <td>访问公匙</td>
+    </tr>
+    <tr>
+        <th>created</th>
+        <td>必填</td>
+        <td>请求时间 10位时间戳</td>
+    </tr>
+    <tr>
+        <th>sign</th>
+        <td>必填</td>
+        <td>MD5签名结果</td>
+    </tr>
+    <tr>
+        <th>加密实例</th>
+        <td colspan="2">sign =
+            md5(access_key=xxxxxxxx-xxxxxxxx-xxxxxxxx-xxxxxxxx&created=1386844119&method=get_account_info&secret_key=xxxxxxxx-xxxxxxxx-xxxxxxxx-xxxxxxxx)
+        </td>
+    </tr>
+    <tr>
+        <th>market</th>
+        <td>选填</td>
+        <td>此项不参与sign签名过程，交易市场(cny:人民币交易市场，usd:美元交易市场，默认是cny)</td>
+    </tr>
+    </tbody>
+</table>
+####返回结果
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>字段名</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>total</th>
+        <td>总资产折合</td>
+    </tr>
+    <tr>
+        <th>net_asset</th>
+        <td>净资产折合</td>
+    </tr>
+    <tr>
+        <th>available_cny_display</th>
+        <td>可用人民币（美元交易市场返回available_usd_display）</td>
+    </tr>
+    <tr>
+        <th>available_btc_display</th>
+        <td>可用比特币</td>
+    </tr>
+    <tr>
+        <th>available_ltc_display</th>
+        <td>可用莱特币（只有人民币交易市场才会返回）</td>
+    </tr>
+    <tr>
+        <th>frozen_cny_display</th>
+        <td>冻结人民币（美元交易市场返回frozen_usd_display）</td>
+    </tr>
+    <tr>
+        <th>frozen_btc_display</th>
+        <td>冻结比特币</td>
+    </tr>
+    <tr>
+        <th>frozen_ltc_display</th>
+        <td>冻结莱特币（只有人民币交易市场才会返回）</td>
+    </tr>
+    <tr>
+        <th>loan_cny_display</th>
+        <td>申请人民币数量（美元交易市场返回loan_usd_display）</td>
+    </tr>
+    <tr>
+        <th>loan_btc_display</th>
+        <td>申请比特币数量</td>
+    </tr>
+    <tr>
+        <th>loan_ltc_display</th>
+        <td>申请莱特币数量（只有人民币交易市场才会返回）</td>
+    </tr>
+    </tbody>
+</table>

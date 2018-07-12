@@ -1,0 +1,91 @@
+##提币BTC/LTC 
+###withdraw_coin
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>字段名</th>
+        <th>填写类型</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>method</th>
+        <td>必填</td>
+        <td>请求的方法 withdraw_coin</td>
+    </tr>
+    <tr>
+        <th>access_key</th>
+        <td>必填</td>
+        <td>访问密匙</td>
+    </tr>
+    <tr>
+        <th>coin_type</th>
+        <td>必填</td>
+        <td>币种 1 比特币 2 莱特币</td>
+    </tr>
+    <tr>
+        <th>created</th>
+        <td>必填</td>
+        <td>提交时间 10位时间戳</td>
+    </tr>
+    <tr>
+        <th>withdraw_address</th>
+        <td>必填</td>
+        <td>提币认证地址</td>
+    </tr>
+    <tr>
+        <th>withdraw_amount</th>
+        <td>必填</td>
+        <td>提币数量 BTC&gt;=0.01 LTC&gt;=0.1</td>
+    </tr>
+    <tr>
+        <th>sign</th>
+        <td>必填</td>
+        <td>MD5签名结果</td>
+    </tr>
+    <tr>
+        <th>加密实例</th>
+        <td colspan="2" style="word-break: break-all;">sign = md5(access_key=xxxxxxxx-xxxxxxxx-xxxxxxxx-xxxxxxxx&amp;coin_type=1&amp;created=1386844119&amp;method=withdraw_coin&amp;secret_key=xxxxxxxx-xxxxxxxx-xxxxxxxx-xxxxxxxx&amp;withdraw_address=xxxxxx&amp;withdraw_amount=0.1)
+        </td>
+    </tr>
+    <tr>
+        <th>trade_password</th>
+        <td>选填</td>
+        <td>此项不参与sign签名过程，资金密码，因涉及安全验证，提币必须输入此参数才能成功</td>
+    </tr>
+    <tr>
+        <th>market</th>
+        <td>选填</td>
+        <td>此项不参与sign签名过程，交易市场(cny:人民币交易市场，暂不支持美元市场)</td>
+    </tr>
+    <tr>
+        <th>withdraw_fee</th>
+        <td>必填</td>
+        <td>此项不参与sign签名过程，网络转账手续费，支持范围：BTC[0.0001,0.01],LTC目前仅支持0.001。如果不填此参数默认最小值</td>
+    </tr>
+    </tbody>
+</table>
+####返回结果
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>字段名</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>code</th>
+        <td>正常200，失败时为错误代码</td>
+    </tr>
+    <tr>
+        <th>message</th>
+        <td>正常OK，失败时为提示信息</td>
+    </tr>
+    <tr>
+        <th>withdraw_coin_id</th>
+        <td>提币申请id</td>
+    </tr>
+    </tbody>
+</table>
